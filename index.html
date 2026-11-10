@@ -3,53 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot Yönetim Paneli</title>
+    <title>Mistik Tarot & Fal Danışmanlığı</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0c0a1d; color: #e2e8f0; }
-        .cinzel { font-family: 'Cinzel', serif; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0c0a1d;
+            color: #e2e8f0;
+        }
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 p-4 md:p-8">
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 flex items-center justify-center p-4">
 
-    <div class="max-w-4xl mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-center mb-8 bg-purple-900/20 border border-purple-500/30 p-6 rounded-2xl backdrop-blur-md">
+    <div class="max-w-md w-full bg-slate-900/80 border border-purple-500/30 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-xl">
+        
+        <!-- Üst Başlık -->
+        <div class="text-center mb-6">
+            <span class="text-3xl">🔮</span>
+            <h1 class="cinzel text-2xl font-bold text-amber-300 mt-2 tracking-wider">Tarot & Fal Randevusu</h1>
+            <p class="text-xs text-purple-300/80 mt-1">Ruhunuzun rehberliğine ilk adımı atın</p>
+        </div>
+
+        <!-- Randevu Formu -->
+        <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
+            
+            <!-- Ad Soyad -->
             <div>
-                <h1 class="cinzel text-2xl md:text-3xl font-bold text-amber-300 tracking-wider">Yönetim Paneli</h1>
-                <p class="text-sm text-purple-300/80 mt-1">Ses kayıtlarını erkenden yükle, randevu saatinde otomatik gitsin ✨</p>
+                <label class="block text-xs font-medium text-purple-200 mb-1">Adınız Soyadınız</label>
+                <input type="text" required placeholder="Örn: Ayşe Yılmaz" class="w-full bg-slate-950/60 border border-purple-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition">
             </div>
-            <div class="mt-4 md:mt-0 bg-purple-950/80 border border-purple-600/40 px-4 py-2 rounded-xl text-center">
-                <span class="block text-xs text-purple-300">Aktif Randevular</span>
-                <span class="cinzel text-xl font-bold text-amber-300">2</span>
+
+            <!-- Telefon Numarası -->
+            <div>
+                <label class="block text-xs font-medium text-purple-200 mb-1">WhatsApp Telefon Numaranız</label>
+                <input type="tel" required placeholder="0555 123 45 67" class="w-full bg-slate-950/60 border border-purple-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition">
             </div>
-        </header>
 
-        <main class="space-y-4">
-            <!-- Örnek Randevu -->
-            <div class="bg-slate-900/60 border border-purple-500/20 hover:border-purple-500/50 transition-all rounded-2xl p-5 shadow-lg backdrop-blur-sm">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 text-xs rounded-full font-medium">Katina Falı</span>
-                            <span class="text-xs text-slate-400">📅 Bugün, 19:00</span>
-                        </div>
-                        <h3 class="cinzel text-lg font-semibold text-white mt-2">Ayşe Yılmaz</h3>
-                        <p class="text-xs text-purple-300/70">Tel: +90 (555) 123 45 67 • IBAN Bekleniyor</p>
-                    </div>
+            <!-- Fal Seçimi -->
+            <div>
+                <label class="block text-xs font-medium text-purple-200 mb-1">Fal / Açılım Türü</label>
+                <select class="w-full bg-slate-950/60 border border-purple-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition">
+                    <option class="bg-slate-900">Katina İlişki ve Aşk Açılımı (~30 dk)</option>
+                    <option class="bg-slate-900">Detaylı Tarot Analizi (~40 dk)</option>
+                    <option class="bg-slate-900">Genel Yıldızname ve Yaşam Rehberliği</option>
+                </select>
+            </div>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-                        <div class="flex-1 sm:flex-initial">
-                            <input type="file" accept="audio/*" class="text-xs text-slate-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-500 cursor-pointer">
-                        </div>
-                        <button onclick="alert('Ses kaydı yüklendi! 19:00 da otomatik gidecek.')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition shadow-md whitespace-nowrap cursor-pointer">
-                            Kayıp Eşitle & Kilitle
-                        </button>
-                    </div>
+            <!-- Tarih ve Saat Seçimi -->
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-medium text-purple-200 mb-1">Gün</label>
+                    <input type="date" required class="w-full bg-slate-950/60 border border-purple-500/30 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-purple-200 mb-1">Müsait Saat</label>
+                    <select class="w-full bg-slate-950/60 border border-purple-500/30 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition">
+                        <option class="bg-slate-900">14:00</option>
+                        <option class="bg-slate-900">16:30</option>
+                        <option class="bg-slate-900">19:00</option>
+                        <option class="bg-slate-900">21:30</option>
+                    </select>
                 </div>
             </div>
-        </main>
+
+            <!-- Randevu Al Butonu -->
+            <button type="submit" class="w-full mt-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold py-3 px-4 rounded-xl transition shadow-lg cinzel tracking-wide text-sm cursor-pointer">
+                Randevuyu Onayla ✨
+            </button>
+        </form>
+
+        <!-- Başarı / IBAN Ekranı -->
+        <div id="ibanCard" class="hidden mt-6 bg-purple-950/40 border border-amber-500/40 rounded-2xl p-5 text-center space-y-3">
+            <span class="text-2xl">🎉</span>
+            <h3 class="cinzel text-lg font-bold text-amber-300">Randevunuz Oluşturuldu!</h3>
+            <p class="text-xs text-purple-200/90 leading-relaxed">
+                Ses kaydınız seçtiğiniz saatte WhatsApp hattınıza iletilecektir. Lütfen işlem tamamlanmadan önce aşağıdaki IBAN adresine ilgili tutarı gönderiniz.
+            </p>
+            <div class="bg-slate-950/80 border border-purple-500/20 p-3 rounded-xl text-left text-xs space-y-1">
+                <p class="text-purple-300"><b>Banka:</b> Garanti BBVA</p>
+                <p class="text-purple-300"><b>Alıcı:</b> Arkadaşınızın Adı Soyadı</p>
+                <p class="text-amber-300 font-mono select-all">TR33 0006 2000 1110 0000 1234 56</p>
+            </div>
+            <p class="text-[10px] text-purple-400">Açıklamaya ad-soyad yazmayı unutmayın sevgiler ✨</p>
+        </div>
+
     </div>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('ibanCard').classList.remove('hidden');
+        }
+    </script>
 
 </body>
 </html>
