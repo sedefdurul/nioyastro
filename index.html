@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Yönetim Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0c0a1d; color: #e2e8f0; }
+        .cinzel { font-family: 'Cinzel', serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8 bg-purple-900/20 border border-purple-500/30 p-6 rounded-2xl backdrop-blur-md">
+            <div>
+                <h1 class="cinzel text-2xl md:text-3xl font-bold text-amber-300 tracking-wider">Yönetim Paneli</h1>
+                <p class="text-sm text-purple-300/80 mt-1">Ses kayıtlarını erkenden yükle, randevu saatinde otomatik gitsin ✨</p>
+            </div>
+            <div class="mt-4 md:mt-0 bg-purple-950/80 border border-purple-600/40 px-4 py-2 rounded-xl text-center">
+                <span class="block text-xs text-purple-300">Aktif Randevular</span>
+                <span class="cinzel text-xl font-bold text-amber-300">2</span>
+            </div>
+        </header>
+
+        <main class="space-y-4">
+            <!-- Örnek Randevu -->
+            <div class="bg-slate-900/60 border border-purple-500/20 hover:border-purple-500/50 transition-all rounded-2xl p-5 shadow-lg backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 text-xs rounded-full font-medium">Katina Falı</span>
+                            <span class="text-xs text-slate-400">📅 Bugün, 19:00</span>
+                        </div>
+                        <h3 class="cinzel text-lg font-semibold text-white mt-2">Ayşe Yılmaz</h3>
+                        <p class="text-xs text-purple-300/70">Tel: +90 (555) 123 45 67 • IBAN Bekleniyor</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+                        <div class="flex-1 sm:flex-initial">
+                            <input type="file" accept="audio/*" class="text-xs text-slate-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-500 cursor-pointer">
+                        </div>
+                        <button onclick="alert('Ses kaydı yüklendi! 19:00 da otomatik gidecek.')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition shadow-md whitespace-nowrap cursor-pointer">
+                            Kayıp Eşitle & Kilitle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
